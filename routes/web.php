@@ -46,14 +46,15 @@ Route::get('/input', 'MangatsngodingController@input');
 Route::post('/proses', 'MangatsngodingController@proses');
 
 Route::get('/karyawan', 'KaryawanController@index');
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/enkripsi', 'BayuController@enkripsi');
 Route::get('/data/', 'BayuController@data');
 Route::get('/data/{data_rahasia}', 'BayuController@data_proses');
+Route::get('/hash', 'BayuController@hash');
+
+Route::get('/upload', 'UploadController@upload');
+Route::post('/upload/proses', 'UploadController@proses_upload');
+Route::get('/upload/hapus/{id}', 'UploadController@hapus');
