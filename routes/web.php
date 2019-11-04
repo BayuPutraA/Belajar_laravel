@@ -48,6 +48,7 @@ Route::post('/proses', 'MangatsngodingController@proses');
 Route::get('/karyawan', 'KaryawanController@index');
 
 Auth::routes();
+Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/enkripsi', 'BayuController@enkripsi');
@@ -58,3 +59,20 @@ Route::get('/hash', 'BayuController@hash');
 Route::get('/upload', 'UploadController@upload');
 Route::post('/upload/proses', 'UploadController@proses_upload');
 Route::get('/upload/hapus/{id}', 'UploadController@hapus');
+
+Route::get('/session/tampil', 'TesController@tampilkanSession');
+Route::get('/session/buat', 'TesController@buatSession');
+Route::get('/session/hapus', 'TesController@hapusSession');
+
+Route::get('/pesan', 'NotifController@index');
+Route::get('/pesan/sukses', 'NotifController@sukses');
+Route::get('/pesan/peringatan', 'NotifController@peringatan');
+Route::get('/pesan/gagal', 'NotifController@gagal');
+
+Route::get('/ngoding', 'NgodingController@index');
+Route::get('/ngoding/{nama}', 'NgodingController@index');
+
+Route::get('/kirimemail', 'NgodingEmailController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
